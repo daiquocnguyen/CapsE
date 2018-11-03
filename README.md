@@ -1,10 +1,10 @@
-# CapsE: Knowledge Graph Completion and Search Personalization using Dynamic Routing between Capsules
+# CapsE: A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization
 
 This program provides the implementation of the dynamic routing between capsules-based model CapsE for the knowledge graph completion and the search personalization as described in the paper:
 
         @InProceedings{Nguyen2018,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
-          title={{Knowledge Graph Completion and Search Personalization using Dynamic Routing between Capsules}},
+          title={{A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization}},
           booktitle={arXiv},
           year={2018}
           }
