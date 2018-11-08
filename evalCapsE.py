@@ -1,4 +1,5 @@
 import tensorflow as tf
+from scipy.stats import rankdata
 import numpy as np
 import os
 import time
@@ -187,9 +188,21 @@ else:
                             else:  # 'tail'
                                 new_x_batch[:, 2] = entity_array
 
+                            lstIdx = []
+                            for tmpIdxTriple in range(len(new_x_batch)):
+                                tmpTriple = (new_x_batch[tmpIdxTriple][0], new_x_batch[tmpIdxTriple][1],
+                                             new_x_batch[tmpIdxTriple][2])
+                                if tmpTriple[0] == x_batch[i][0] and tmpTriple[1] == x_batch[i][1] and tmpTriple[2] == \
+                                        x_batch[i][2]:
+                                    continue
+                                if (tmpTriple in train) or (tmpTriple in valid) or (tmpTriple in test):
+                                    lstIdx.append(tmpIdxTriple)
+                            new_x_batch = np.delete(new_x_batch, lstIdx, axis=0)
+                            new_y_batch = np.delete(new_y_batch, lstIdx, axis=0)
+
                             while len(new_x_batch) % ((int(args.neg_ratio) + 1) * args.batch_size) != 0:
-                                new_x_batch = np.append(new_x_batch, [x_batch[i]], axis=0)
-                                new_y_batch = np.append(new_y_batch, [y_batch[i]], axis=0)
+                               new_x_batch = np.append(new_x_batch, [x_batch[i]], axis=0)
+                               new_y_batch = np.append(new_y_batch, [y_batch[i]], axis=0)
 
                             if head_or_tail == 'head':
                                 entity_array1 = new_x_batch[:, 0]
@@ -205,37 +218,24 @@ else:
                             results = np.append(results,
                                                 predict(new_x_batch[listIndexes[-1]:], new_y_batch[listIndexes[-1]:]))
 
-                            results = np.reshape(results, [entity_array1.shape[0], 1])
-                            results_with_id = np.hstack(
-                                (np.reshape(entity_array1, [entity_array1.shape[0], 1]), results))
-                            results_with_id = results_with_id[np.argsort(results_with_id[:, 1])]
-                            results_with_id = results_with_id[:, 0].astype(int)
-                            _filter = 0
-                            if head_or_tail == 'head':
-                                for tmpHead in results_with_id:
-                                    if tmpHead == x_batch[i][0]:
-                                        break
-                                    tmpTriple = (tmpHead, x_batch[i][1], x_batch[i][2])
-                                    if (tmpTriple in train) or (tmpTriple in valid) or (tmpTriple in test):
-                                        continue
-                                    else:
-                                        _filter += 1
-                            else:
-                                for tmpTail in results_with_id:
-                                    if tmpTail == x_batch[i][2]:
-                                        break
-                                    tmpTriple = (x_batch[i][0], x_batch[i][1], tmpTail)
-                                    if (tmpTriple in train) or (tmpTriple in valid) or (tmpTriple in test):
-                                        continue
-                                    else:
-                                        _filter += 1
+                            results = np.reshape(results, -1)
+                            entity_array1 = np.reshape(entity_array1, -1).astype(int)
+                            results_with_id = rankdata(results, method='min')
 
-                            mr += (_filter + 1)
-                            mrr += 1.0 / (_filter + 1)
-                            if _filter < 10:
+                            if head_or_tail == 'head':
+                                tmpIdx = np.where(entity_array1 == x_batch[i][0])
+                                _filter = results_with_id[tmpIdx[0][0]]
+
+                            else:
+                                tmpIdx = np.where(entity_array1 == x_batch[i][2])
+                                _filter = results_with_id[tmpIdx[0][0]]
+
+                            mr += _filter
+                            mrr += 1.0 / _filter
+                            if _filter <= 10:
                                 hits10 += 1
                             
-                            if _filter == 0:
+                            if _filter == 1:
                                 hits1 += 1
 
 
