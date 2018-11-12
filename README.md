@@ -52,7 +52,7 @@ To run the program:
 
 To reproduce the CapsE results published in the paper:      
                 
-        $ python CapsE.py --embedding_dim 100 --num_epochs 51 --num_filters 400 --learning_rate 0.0001 --name FB15k-237 --useConstantInit --savedEpochs 50 --model_name fb15k237
+        $ python CapsE.py --embedding_dim 100 --num_epochs 31 --num_filters 50 --learning_rate 0.0001 --name FB15k-237 --useConstantInit --savedEpochs 30 --model_name fb15k237
         
         $ python CapsE.py --embedding_dim 100 --num_epochs 31 --num_filters 400 --learning_rate 0.00001 --name WN18RR --savedEpochs 30 --model_name wn18rr
         
@@ -62,7 +62,7 @@ File `evalCapsE.py` provides ranking-based scores as evaluation metrics, includi
 
 See examples in `command.sh`. Depending on the memory resources, you should change the values of `--num_splits` to a suitable value to get a faster process. To get the results (supposing `num_splits = 8`):
         
-        $ python evalCapsE.py --embedding_dim 100 --num_filters 400 --name FB15k-237 --useConstantInit --model_index 50 --model_name fb15k237 --num_splits 8 --decode
+        $ python evalCapsE.py --embedding_dim 100 --num_filters 50 --name FB15k-237 --useConstantInit --model_index 30 --model_name fb15k237 --num_splits 8 --decode
         
         $ python evalCapsE.py --embedding_dim 100 --num_filters 400 --name WN18RR --model_index 30 --model_name wn18rr --num_splits 8 --decode
          
