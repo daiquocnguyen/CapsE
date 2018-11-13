@@ -115,7 +115,7 @@ def routing(input, b_IJ, batch_size, iter_routing, num_caps_i, num_caps_j, len_u
     # line 3,for r iterations do
     for r_iter in range(iter_routing):
         with tf.variable_scope('iter_' + str(r_iter)):
-            # line 4:
+            # line 4, modified to apply the softmax to a direction from all capsules in the previous layer each of capsule in the next layer.
             c_IJ = tf.nn.softmax(b_IJ, axis=1) * num_caps_i
             if r_iter == iter_routing - 1:
                 # line 5:
