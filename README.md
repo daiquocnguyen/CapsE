@@ -1,11 +1,11 @@
 # CapsE: A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization
 
-This program provides the implementation of the dynamic routing between capsules-based model CapsE for the knowledge graph completion and the search personalization as described in the paper:
+This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in the paper:
 
-        @InProceedings{Nguyen2018,
+        @InProceedings{Nguyen2018CapsE,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
           title={{A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization}},
-          booktitle={arXiv},
+          booktitle={arXiv preprint arXiv:1808.04122},
           year={2018}
           }
   
