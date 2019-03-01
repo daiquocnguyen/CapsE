@@ -2,7 +2,7 @@
 
 This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in [the paper](https://arxiv.org/abs/1808.04122):
 
-        @InProceedings{Nguyen2018CapsE,
+        @InProceedings{Nguyen2019CapsE,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
           title={{A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization}},
           booktitle={Proceedings of the 2019 Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)},
