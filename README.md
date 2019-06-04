@@ -16,6 +16,10 @@ CapsE is free for non-commercial use and distributed under the Creative Commons 
 
 ![alt text](https://github.com/daiquocnguyen/CapsE/blob/master/CapsE.png)
 
+## Note SEARCH17
+
+As in an aggrement, you "MUST" cite the paper [Search Personalization with Embeddings](https://arxiv.org/abs/1612.03597) whenever SEARCH17 is used to produce your published results. At the moment, I cannot release the text because of the privacy issues.
+
 ## Usage
 
 ### Requirements
