@@ -14,7 +14,9 @@ Please cite the paper whenever CapsE is used to produce published results or inc
 
 CapsE is free for non-commercial use and distributed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA) License. 
 
-![alt text](https://github.com/daiquocnguyen/CapsE/blob/master/CapsE.png)
+<p align="center"> 
+<img src="https://github.com/daiquocnguyen/CapsE/blob/master/CapsE.png">
+</p>
 
 ## Note SEARCH17
 
