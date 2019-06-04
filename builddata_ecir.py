@@ -39,14 +39,10 @@ def init_norm_Vector(relinit, entinit, embedding_size):
     with open(relinit) as f:
         for line in f:
             tmp = [float(val) for val in line.strip().split()]
-            #if np.linalg.norm(tmp) > 1:
-            #    tmp = tmp / np.linalg.norm(tmp)
             lstrel.append(tmp)
     with open(entinit) as f:
         for line in f:
             tmp = [float(val) for val in line.strip().split()]
-            #if np.linalg.norm(tmp) > 1:
-            #    tmp = tmp / np.linalg.norm(tmp)
             lstent.append(tmp)
     assert embedding_size % len(lstent[0]) == 0
     return np.array(lstent, dtype=np.float32), np.array(lstrel, dtype=np.float32)
