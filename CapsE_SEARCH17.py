@@ -18,7 +18,7 @@ parser = ArgumentParser("CapsE", formatter_class=ArgumentDefaultsHelpFormatter, 
 
 parser.add_argument("--data", default="./data/", help="Data sources.")
 parser.add_argument("--run_folder", default="./", help="Data sources.")
-parser.add_argument("--name", default="ecir", help="Name of the dataset.")
+parser.add_argument("--name", default="SEARCH17", help="Name of the dataset.")
 
 parser.add_argument("--embedding_dim", default=200, type=int, help="Dimensionality of character embedding (fixed: 200)")
 parser.add_argument("--filter_size", default=1, type=int, help="Comma-separated filter sizes (default: '3,4,5')")

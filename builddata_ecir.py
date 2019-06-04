@@ -39,10 +39,14 @@ def init_norm_Vector(relinit, entinit, embedding_size):
     with open(relinit) as f:
         for line in f:
             tmp = [float(val) for val in line.strip().split()]
+            #if np.linalg.norm(tmp) > 1:
+            #    tmp = tmp / np.linalg.norm(tmp)
             lstrel.append(tmp)
     with open(entinit) as f:
         for line in f:
             tmp = [float(val) for val in line.strip().split()]
+            #if np.linalg.norm(tmp) > 1:
+            #    tmp = tmp / np.linalg.norm(tmp)
             lstent.append(tmp)
     assert embedding_size % len(lstent[0]) == 0
     return np.array(lstent, dtype=np.float32), np.array(lstrel, dtype=np.float32)
@@ -373,7 +377,7 @@ def load_triples_from_txt_ecir(filename, query_indexes=None, user_indexes=None, 
 
     return lsttriples, lstranks, lstvals, query_indexes, user_indexes, doc_indexes
 
-def build_data_ecir(name='ecir', path='./data'):
+def build_data_ecir(name='SEARCH17', path='./data'):
     folder = path + '/' + name + '/'
 
     train_triples, train_rank_triples, train_val_triples, query_indexes, user_indexes, doc_indexes \
