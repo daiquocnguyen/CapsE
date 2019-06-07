@@ -55,9 +55,7 @@ To run the program:
 
 `--batch_size`: Batch size.
 
-### Reproduce the CapsE results 
-
-To reproduce the CapsE results published in the paper:      
+To train a CapsE model to reproduce the experimental results published in the paper:      
                 
         $ python CapsE.py --embedding_dim 100 --num_epochs 31 --num_filters 50 --learning_rate 0.0001 --name FB15k-237 --useConstantInit --savedEpochs 30 --model_name fb15k237
         
