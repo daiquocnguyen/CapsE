@@ -1,13 +1,13 @@
 # CapsE: A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization
 
-This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in [the paper](https://arxiv.org/abs/1808.04122):
+This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in [the paper](https://www.aclweb.org/anthology/N19-1226):
 
         @InProceedings{Nguyen2019CapsE,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
           title={{A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization}},
           booktitle={Proceedings of the 2019 Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)},
           year={2019},
-          pages={to appear}
+          pages={2180--2189}
           }
   
 Please cite the paper whenever CapsE is used to produce published results or incorporated into other software. As a free open-source implementation, CapsE is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. All other warranties including, but not limited to, merchantability and fitness for purpose, whether express, implied, or arising by operation of law, course of dealing, or trade usage are hereby disclaimed. I believe that the programs compute what I claim they compute, but I do not guarantee this. The programs may be poorly and inconsistently documented and may contain undocumented components, features or modifications. I make no guarantee that these programs will be suitable for any application.
