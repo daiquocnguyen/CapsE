@@ -1,10 +1,4 @@
-import scipy
-import scipy.io
-import random
-
-from batching_ecir import *
-
-
+import numpy as np
 def read_from_id(filename='../data/WN18RR/entity2id.txt'):
     entity2id = {}
     id2entity = {}
@@ -441,44 +435,4 @@ def computeP1(lstRanks):
         if tmp[0] == 1:
             p1 += 1
     return p1 / len(lstRanks)
-
-if __name__ == '__main__':
-    #build_data_ecir()
-
-    # train_triples, train_rank_triples, train_val_triples, valid_triples, valid_rank_triples, valid_val_triples, \
-    #     test_triples, test_rank_triples, test_val_triples, query_indexes, user_indexes, doc_indexes, \
-    #         indexes_query, indexes_user, indexes_doc = build_data_ecir()
-    #
-    # train = Batch_Loader_ecir(train_triples, train_val_triples, batch_size=16)
-    #
-    # x, y = train()
-    #
-    # new_x_batch = np.concatenate(test_triples)
-    # new_y_batch = np.concatenate(test_val_triples, axis=0)
-    #
-    # print(computeMRR(test_rank_triples), computeP1(test_rank_triples))
-    #
-    # for tmp in test_rank_triples:
-    #     print(tmp)
-    #     print(np.where(np.array(tmp) == 1)[0][0] + 1)
-
-    import os
-    maxmrr = 0.0
-    mrrtest = 0.0
-    p1test = 0.0
-    path = ''
-    for root, dirs, files in os.walk("../../../../runs_capsnet/"):
-        for file in files:
-            if file.endswith("model.cls..txt"):
-                lines = open(os.path.join(root, file)).readlines()
-                if len(lines) > 0:
-                    print(os.path.join(root, file), float(lines[204].strip().split()[-1]), float(lines[206].strip().split()[-2]), float(lines[206].strip().split()[-1]))
-                    if maxmrr < float(lines[204].strip().split()[-1]):
-                        maxmrr = float(lines[204].strip().split()[-1])
-                        mrrtest = float(lines[206].strip().split()[-2])
-                        p1test = float(lines[206].strip().split()[-1])
-                        path = os.path.join(root, file)
-                        print(maxmrr, mrrtest, p1test)
-
-    print('Final result: ', path, 'dev', maxmrr, 'test', mrrtest, p1test)
 
