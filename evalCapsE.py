@@ -7,6 +7,7 @@ import datetime
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 from builddata_softplus import *
 from capsuleNet import CapsE
+
 # Parameters
 # ==================================================
 parser = ArgumentParser("CapsE", formatter_class=ArgumentDefaultsHelpFormatter, conflict_handler='resolve')
@@ -15,7 +16,8 @@ parser.add_argument("--data", default="./data/", help="Data sources.")
 parser.add_argument("--run_folder", default="./", help="Data sources.")
 parser.add_argument("--name", default="WN18RR", help="Name of the dataset.")
 
-parser.add_argument("--embedding_dim", default=100, type=int, help="Dimensionality of character embedding (default: 128)")
+parser.add_argument("--embedding_dim", default=100, type=int,
+                    help="Dimensionality of character embedding (default: 128)")
 parser.add_argument("--filter_size", default=1, type=int, help="Comma-separated filter sizes (default: '3,4,5')")
 parser.add_argument("--num_filters", default=400, type=int, help="Number of filters per filter size (default: 128)")
 parser.add_argument("--learning_rate", default=0.00001, type=float, help="Learning rate")
@@ -34,7 +36,7 @@ parser.add_argument('--num_outputs_secondCaps', default=1, type=int, help='')
 parser.add_argument('--vec_len_secondCaps', default=10, type=int, help='')
 
 parser.add_argument("--model_index", default='30')
-parser.add_argument("--num_splits", default=8, type=int,)
+parser.add_argument("--num_splits", default=8, type=int, )
 parser.add_argument("--testIdx", default=1, type=int, help="From 0 to 7")
 parser.add_argument("--decode", action='store_false')
 
@@ -44,10 +46,11 @@ print(args)
 print("Loading data...")
 
 train, valid, test, words_indexes, indexes_words, \
-    headTailSelector, entity2id, id2entity, relation2id, id2relation = build_data(path=args.data, name=args.name)
+headTailSelector, entity2id, id2entity, relation2id, id2relation = build_data(path=args.data, name=args.name)
 data_size = len(train)
 train_batch = Batch_Loader(train, words_indexes, indexes_words, headTailSelector, \
-                           entity2id, id2entity, relation2id, id2relation, batch_size=args.batch_size, neg_ratio=args.neg_ratio)
+                           entity2id, id2entity, relation2id, id2relation, batch_size=args.batch_size,
+                           neg_ratio=args.neg_ratio)
 
 entity_array = np.array(list(train_batch.indexes_ents.keys()))
 
@@ -56,7 +59,8 @@ if args.useInitialization == True:
     print("Using pre-trained initialization.")
     initialization = np.empty([len(words_indexes), args.embedding_dim]).astype(np.float32)
     initEnt, initRel = init_norm_Vector(args.data + args.name + '/relation2vec' + str(args.embedding_dim) + '.init',
-                                            args.data + args.name + '/entity2vec' + str(args.embedding_dim) + '.init', args.embedding_dim)
+                                        args.data + args.name + '/entity2vec' + str(args.embedding_dim) + '.init',
+                                        args.embedding_dim)
     for _word in words_indexes:
         if _word in relation2id:
             index = relation2id[_word]
@@ -84,7 +88,6 @@ x_test = np.array(list(test.keys())).astype(np.int32)
 y_test = np.array(list(test.values())).astype(np.float32)
 len_test = len(x_test)
 batch_test = int(len_test / (args.num_splits - 1))
-
 
 # uncomment when tuning hyper-parameters on the validation set
 # x_test = x_valid
@@ -179,7 +182,7 @@ else:
                         mrr = 0.0
                         mr = 0.0
                         hits1 = 0.0
-                        
+
                         for i in range(len(x_batch)):
                             new_x_batch = np.tile(x_batch[i], (len(entity2id), 1))
                             new_y_batch = np.tile(y_batch[i], (len(entity2id), 1))
@@ -203,10 +206,11 @@ else:
                                                     axis=0)  # thus, the index of the valid test triple is equal to 0
                             new_y_batch = np.insert(new_y_batch, 0, y_batch[i], axis=0)
 
-                            #for running with a batch size
+                            # for running with a batch size
                             while len(new_x_batch) % ((int(args.neg_ratio) + 1) * args.batch_size) != 0:
-                               new_x_batch = np.append(new_x_batch, [x_batch[i]], axis=0)
-                               new_y_batch = np.append(new_y_batch, [y_batch[i]], axis=0)
+                                j = np.random.choice(range(1, len(new_x_batch)), size=1)[0]
+                                new_x_batch = np.append(new_x_batch, [new_x_batch[j]], axis=0)
+                                new_y_batch = np.append(new_y_batch, [new_y_batch[j]], axis=0)
 
                             results = []
                             listIndexes = range(0, len(new_x_batch), (int(args.neg_ratio) + 1) * args.batch_size)
@@ -225,10 +229,9 @@ else:
                             mrr += 1.0 / _filter
                             if _filter <= 10:
                                 hits10 += 1
-                            
+
                             if _filter == 1:
                                 hits1 += 1
-
 
                         return np.array([mr, mrr, hits1, hits10])
 
@@ -260,4 +263,3 @@ else:
                     wri.write('\n')
 
                     wri.close()
-
