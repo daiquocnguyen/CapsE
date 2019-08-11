@@ -15,7 +15,6 @@ parser = ArgumentParser("CapsE", formatter_class=ArgumentDefaultsHelpFormatter, 
 parser.add_argument("--data", default="./data/", help="Data sources.")
 parser.add_argument("--run_folder", default="./", help="Data sources.")
 parser.add_argument("--name", default="WN18RR", help="Name of the dataset.")
-
 parser.add_argument("--embedding_dim", default=100, type=int,
                     help="Dimensionality of character embedding (default: 128)")
 parser.add_argument("--filter_size", default=1, type=int, help="Comma-separated filter sizes (default: '3,4,5')")
@@ -36,7 +35,7 @@ parser.add_argument('--num_outputs_secondCaps', default=1, type=int, help='')
 parser.add_argument('--vec_len_secondCaps', default=10, type=int, help='')
 
 parser.add_argument("--model_index", default='30')
-parser.add_argument("--num_splits", default=8, type=int, )
+parser.add_argument("--num_splits", default=8, type=int)
 parser.add_argument("--testIdx", default=1, type=int, help="From 0 to 7")
 parser.add_argument("--decode", action='store_false')
 
@@ -95,9 +94,7 @@ batch_test = int(len_test / (args.num_splits - 1))
 # len_test = len_valid
 # batch_test = batch_valid
 
-
 ##########################################
-
 if args.decode == False:
     lstModelNames = list(args.model_name.split(","))
     for _model_name in lstModelNames:
@@ -165,7 +162,6 @@ else:
 
                     print("Loaded model", _file)
 
-
                     # Predict function to predict scores for test data
                     def predict(x_batch, y_batch, writer=None):
                         feed_dict = {
@@ -174,7 +170,6 @@ else:
                         }
                         scores = sess.run([capse.predictions], feed_dict)
                         return scores
-
 
                     def test_prediction(x_batch, y_batch, head_or_tail='head'):
 
@@ -208,9 +203,8 @@ else:
 
                             # for running with a batch size
                             while len(new_x_batch) % ((int(args.neg_ratio) + 1) * args.batch_size) != 0:
-                                j = np.random.choice(range(1, len(new_x_batch)), size=1)[0]
-                                new_x_batch = np.append(new_x_batch, [new_x_batch[j]], axis=0)
-                                new_y_batch = np.append(new_y_batch, [new_y_batch[j]], axis=0)
+                                new_x_batch = np.append(new_x_batch, [x_batch[i]], axis=0)
+                                new_y_batch = np.append(new_y_batch, [y_batch[i]], axis=0)
 
                             results = []
                             listIndexes = range(0, len(new_x_batch), (int(args.neg_ratio) + 1) * args.batch_size)
@@ -234,7 +228,6 @@ else:
                                 hits1 += 1
 
                         return np.array([mr, mrr, hits1, hits10])
-
 
                     if args.testIdx < (args.num_splits - 1):
                         head_results = test_prediction(
