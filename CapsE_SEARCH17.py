@@ -122,7 +122,6 @@ with tf.Graph().as_default():
             feed_dict = {
                 capse.input_x: x_batch,
                 capse.input_y: y_batch,
-                capse.dropout_keep_prob: 1.0
             }
             scores = sess.run([capse.predictions], feed_dict)
             return scores
