@@ -16,12 +16,6 @@ This program provides the implementation of the capsule network-based model Caps
 <img src="https://github.com/daiquocnguyen/CapsE/blob/master/CapsE.png">
 </p>
 
-## Note SEARCH17
-
-As in an agreement, you "MUST" cite the paper [Search Personalization with Embeddings](https://arxiv.org/abs/1612.03597) whenever SEARCH17 is used to produce your published results. Unzip doc2vec.200.zip in the data/SEARCH17 folder. 
-
-At the moment, I cannot release the text because of the privacy issues.
-
 ## Usage
 
 ### Requirements
@@ -70,6 +64,12 @@ See examples in `command.sh`. Depending on the memory resources, you should chan
         $ python evalCapsE.py --embedding_dim 100 --num_filters 50 --name FB15k-237 --useConstantInit --model_index 30 --model_name fb15k237 --num_splits 8 --decode
         
         $ python evalCapsE.py --embedding_dim 100 --num_filters 400 --name WN18RR --model_index 30 --model_name wn18rr --num_splits 8 --decode
+   
+### Note SEARCH17
+
+As in an agreement, you "MUST" cite the paper [Search Personalization with Embeddings](https://arxiv.org/abs/1612.03597) whenever SEARCH17 is used to produce your published results. Unzip doc2vec.200.zip in the data/SEARCH17 folder. 
+
+At the moment, I cannot release the text because of the privacy issues.
          
 ## License
 
