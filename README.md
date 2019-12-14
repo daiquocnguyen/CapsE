@@ -1,9 +1,6 @@
-# CapsE: A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdaiquocnguyen%2FConvKB%2Fblob%2Fmaster%2FREADME.md"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fdaiquocng"></a>
+# CapsE: A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fdaiquocnguyen%2FCapsE%2Fblob%2Fmaster%2FREADME.md"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fdaiquocng"></a>
 
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/daiquocnguyen/ConvKB"><a href="https://github.com/daiquocnguyen/ConvKB/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/daiquocnguyen/ConvKB"></a>
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/daiquocnguyen/ConvKB">
-<a href="https://github.com/daiquocnguyen/ConvKB/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/daiquocnguyen/ConvKB"></a>
-<a href="https://github.com/daiquocnguyen/ConvKB/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/daiquocnguyen/ConvKB"></a>
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/daiquocnguyen/CapsE"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/daiquocnguyen/CapsE"><a href="https://github.com/daiquocnguyen/CapsE/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/daiquocnguyen/CapsE"></a><a href="https://github.com/daiquocnguyen/CapsE/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/daiquocnguyen/CapsE"></a>
 
 This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in [the paper](https://www.aclweb.org/anthology/N19-1226):
 
