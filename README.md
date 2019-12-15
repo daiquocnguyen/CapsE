@@ -6,7 +6,7 @@
 
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/daiquocnguyen/CapsE"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/daiquocnguyen/CapsE"><a href="https://github.com/daiquocnguyen/CapsE/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/daiquocnguyen/CapsE"></a><a href="https://github.com/daiquocnguyen/CapsE/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/daiquocnguyen/CapsE"></a>
 
-This program provides the implementation of the capsule network-based model CapsE for the knowledge graph completion and the search personalization as described in [the paper](https://www.aclweb.org/anthology/N19-1226):
+This program provides the implementation of the capsule network-based embedding model CapsE as described in [the paper](https://www.aclweb.org/anthology/N19-1226):
 
         @InProceedings{Nguyen2019CapsE,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
