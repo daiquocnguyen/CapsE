@@ -42,7 +42,7 @@ Depending on the memory resources, you should change the values of `--num_splits
    
 ### Note SEARCH17
 
-As in an agreement, you "MUST" cite the paper [Search Personalization with Embeddings](https://arxiv.org/abs/1612.03597) whenever SEARCH17 is used to produce your published results. Unzip doc2vec.200.zip in the data/SEARCH17 folder. 
+As in an agreement, you have to cite the paper [Search Personalization with Embeddings](https://arxiv.org/abs/1612.03597) whenever SEARCH17 is used to produce your published results. Unzip doc2vec.200.zip in the data/SEARCH17 folder. 
 
 At the moment, I cannot release the text because of the privacy issues.
          
