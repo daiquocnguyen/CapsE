@@ -10,7 +10,7 @@ This program provides the implementation of the capsule network-based model Caps
 
         @InProceedings{Nguyen2019CapsE,
           author={Dai Quoc Nguyen and Thanh Vu and Tu Dinh Nguyen and Dat Quoc Nguyen and Dinh Phung},
-          title={{A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization}},
+          title={A Capsule Network-based Embedding Model for Knowledge Graph Completion and Search Personalization},
           booktitle={Proceedings of the 2019 Annual Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)},
           year={2019},
           pages={2180--2189}
